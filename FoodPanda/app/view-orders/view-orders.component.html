@@ -1,0 +1,22 @@
+<div class="container mt-5">
+
+  <h2>Orders</h2>
+
+  <button (click)="retrieveOrders(app.customerName)" class="btn btn-success">GetOrders</button>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Food</th>
+      <th>Restaurant</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.food }}</td>
+      <td>{{ order.restaurant }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

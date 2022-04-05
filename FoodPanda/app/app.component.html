@@ -1,0 +1,58 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">FoodPanda</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="login">AdminLogin </a>
+      </li>
+      <li class="nav-item">
+        <a href="/login-customer" class="nav-link" routerLink="login-customer">CustomerLogin </a>
+      </li>
+      <li class="nav-item">
+        <a href="/set-up" class="nav-link" routerLink="set-up">Sign Up</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedAdmin">
+      <li class="nav-item">
+        <a href="/add-restaurant" class="nav-link" routerLink="add-restaurant">Add</a>
+      </li>
+      <li class="nav-item">
+        <a href="/add-menu" class="nav-link" routerLink="add-menu">AddToMenu</a>
+      </li>
+      <li class="nav-item">
+        <a href="/view-menu" class="nav-link" routerLink="view-menu">ViewMenu</a>
+      </li>
+      <li class="nav-item">
+        <a href="/view-orders-admin" class="nav-link" routerLink="view-orders-admin">ViewOrders</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedCustomer">
+      <li class="nav-item">
+        <a href="/restaurant-list" class="nav-link" routerLink="restaurant-list">Restaurants</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/add-to-cart" class="nav-link" routerLink="add-to-cart">AddToCart</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/make-order" class="nav-link" routerLink="make-order">Order</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/view-orders" class="nav-link" routerLink="view-orders">ViewOrders</a>
+      </li>
+    </ul>
+
+
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
