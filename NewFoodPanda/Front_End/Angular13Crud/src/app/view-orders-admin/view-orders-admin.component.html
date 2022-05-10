@@ -1,0 +1,27 @@
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+<div class="container mt-5">
+
+  <h2>Orders</h2>
+
+  <button (click)="retrieveOrders(adminName)" class="btn btn-success">GetOrders</button>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Food</th>
+      <th>Customer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.food }}</td>
+      <td>{{ order.client }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

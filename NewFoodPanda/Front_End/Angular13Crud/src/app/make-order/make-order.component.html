@@ -1,0 +1,36 @@
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  <ul class="navbar-nav ml-auto" *ngIf="app.isLoggedIn">
+<div>
+  <div *ngIf="!submitted">
+  <label><strong>Your Order: </strong></label>
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let name of names; let i = index"
+    >
+      {{ name }}
+    </li>
+  </ul>
+
+  <div>
+    <label><strong>The orders price is: </strong></label> {{ price }}
+  </div>
+
+  <button (click)="Order(client)" class="btn btn-success">Order</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>Order made successfully!</h4>
+  </div>
+
+</div>
+</ul>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.isLoggedIn">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

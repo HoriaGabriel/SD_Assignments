@@ -1,0 +1,72 @@
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+<div class="col-md-12">
+  <h1  *ngIf="!submitted" class="title">Add Menu Page</h1>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="food.name"
+          name="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="food.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          class="form-control"
+          id="price"
+          required
+          [(ngModel)]="food.price"
+          name="price"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input
+          class="form-control"
+          id="category"
+          required
+          [(ngModel)]="food.category"
+          name="price"
+        />
+      </div>
+
+      <button (click)="saveFood()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="!submitted && failed"
+    >
+      Adding failed: {{ errorMessage }}
+    </div>
+
+    <div *ngIf="submitted && !failed">
+      <h4>Menu Item was added successfully!</h4>
+    </div>
+
+  </div>
+</div>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

@@ -1,0 +1,45 @@
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  <ul class="navbar-nav ml-auto" *ngIf="app.isLoggedIn">
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+
+      <div class="form-group">
+        <label for="food">Food</label>
+        <input
+          class="form-control"
+          id="food"
+          required
+          [(ngModel)]="order.food"
+          name="food"
+        />
+      </div>
+
+      <button (click)="addFoodProduct()" class="btn btn-success">Add</button>
+    </div>
+
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="!submitted && failed"
+    >
+      Adding failed. {{ errorMessage }}
+    </div>
+
+    <div *ngIf="submitted && !failed">
+      <h4>Food product was added successfully!</h4>
+      <button class="btn btn-success" (click)="newOrder()">Add</button>
+    </div>
+
+  </div>
+</div>
+</ul>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.isLoggedIn">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

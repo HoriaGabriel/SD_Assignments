@@ -1,0 +1,33 @@
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  <ul class="navbar-nav ml-auto" *ngIf="app.isLoggedIn">
+<div class="container mt-5">
+
+  <h2>Orders</h2>
+
+  <button (click)="retrieveOrders(client)" class="btn btn-success">GetOrders</button>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Food</th>
+      <th>Restaurant</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.food }}</td>
+      <td>{{ order.restaurant }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</ul>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.isLoggedIn">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

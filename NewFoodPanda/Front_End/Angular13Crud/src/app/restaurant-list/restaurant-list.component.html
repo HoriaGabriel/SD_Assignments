@@ -1,0 +1,77 @@
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  <ul class="navbar-nav ml-auto" *ngIf="app.isLoggedIn">
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchRestaurant()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Restaurant List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let restaurant of restaurants; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveRestaurant(restaurant, i)"
+        (click)="retrieveFoods(currentRestaurant.name!)"
+      >
+        {{ restaurant.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="aux">
+
+    <div class="container mt-5">
+
+      <h2>Menu</h2>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let food of foods">
+          <td>{{ food.id }}</td>
+          <td>{{ food.name }}</td>
+          <td>{{ food.description }}</td>
+          <td>{{ food.price }}</td>
+          <td>{{ food.category }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</ul>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>
+
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.isLoggedIn">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

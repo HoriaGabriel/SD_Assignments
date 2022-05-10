@@ -1,0 +1,82 @@
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+<div class="col-md-12">
+  <h1 *ngIf="!submitted" class="title">Add Restaurant Page</h1>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="restaurant.name"
+          name="name"
+          #name="ngModel"
+        />
+
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="name.errors && submitted"
+        >
+          Username is required!
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          class="form-control"
+          id="location"
+          required
+          [(ngModel)]="restaurant.location"
+          name="location"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="delivery_zones">DeliveryZones</label>
+        <input
+          class="form-control"
+          id="delivery_zones"
+          required
+          [(ngModel)]="restaurant.delivery_zones"
+          name="delivery_zones"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="administrator">Administrator</label>
+        <input
+          class="form-control"
+          id="administrator"
+          required
+          [(ngModel)]="restaurant.administrator"
+          name="administrator"
+        />
+      </div>
+      <button (click)="saveRestaurant()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="!submitted && failed"
+    >
+      Adding failed<br />{{ errorMessage }}
+    </div>
+
+    <div *ngIf="submitted && !failed">
+      <h4>Restaurant was added successfully!</h4>
+    </div>
+
+  </div>
+</div>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

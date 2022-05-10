@@ -1,0 +1,36 @@
+<ul class="navbar-nav ml-auto" *ngIf="app.showAdminBoard">
+<div class="container mt-5">
+
+  <h2>Menu</h2>
+
+  <button (click)="retrieveFoods(restaurant)" class="btn btn-success">GetRestaurantFood</button>
+  <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+
+  <div class="col-md-8" id="htmlData">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Category</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let food of foods">
+      <td>{{ food.id }}</td>
+      <td>{{ food.name }}</td>
+      <td>{{ food.description }}</td>
+      <td>{{ food.price }}</td>
+      <td>{{ food.category }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="!app.showAdminBoard">
+  {{functionOnWhichRedirectShouldHappen()}}
+</ul>

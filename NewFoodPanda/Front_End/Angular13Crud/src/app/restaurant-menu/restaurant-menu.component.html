@@ -1,0 +1,37 @@
+<div *ngIf="viewMode">
+  <div *ngIf="currentRestaurant.id">
+
+       <div class="container mt-5">
+
+            <h2>Menu</h2>
+
+         <button (click)="retrieveFoods(currentRestaurant.name!)" class="btn btn-success">GetRestaurantFood</button>
+
+                 <table class="table table-striped">
+                <thead>
+                <tr>
+                 <th>Id</th>
+                 <th>Name</th>
+                 <th>Description</th>
+                 <th>Price</th>
+                <th>Category</th>
+                </tr>
+           </thead>
+           <tbody>
+           <tr *ngFor="let food of foods">
+          <td>{{ food.id }}</td>
+         <td>{{ food.name }}</td>
+         <td>{{ food.description }}</td>
+          <td>{{ food.price }}</td>
+          <td>{{ food.category }}</td>
+        </tr>
+         </tbody>
+      </table>
+      </div>
+  </div>
+  <div *ngIf="!currentRestaurant">
+    <br />
+    <p>Please click on a Restaurant...</p>
+  </div>
+</div>
+
